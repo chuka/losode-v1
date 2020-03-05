@@ -1,0 +1,32 @@
+// Color Variables
+$primary-color: #800000;
+$secondary-color: #d61f27;
+$supporting-color: #d61f2831;
+$text-color: #727272;
+$gray-color: #e4e9ec;
+
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.6rem;
+  color: $text-color;
+}
+
+p{
+  padding-bottom: 0 !important;
+}
+
+// div.main-content{
+//   width: 1240px;
+//   margin-right: auto;
+//   margin-left: auto;
+// }

@@ -1,0 +1,45 @@
+.bg-black{
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+}
+p{
+  padding-bottom: 0 !important;
+}
+.fa{
+  color: #fff;
+}
+
+.flex-container{
+  display: flex;
+}
+
+.flex-container > div {
+  margin-right: 20px;
+}
+ul{
+  list-style-type: none;
+}
+
+ul.flex-container > li {
+  margin-left: 10px;
+}
+
+ion-icon{
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .main-menu{
+      display: none !important;
+      padding-bottom: 50px !important;
+  }
+  .mobile-main > p{
+    font-size: 12px;
+  }
+ }
+ @media only screen and (min-width: 900px) {
+ .mobile-main{
+   display: none;
+ }
+}

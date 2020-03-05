@@ -1,0 +1,21 @@
+
+$supporting-color: #000;
+
+.categoryNav {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 400;
+  padding: 1.2rem 0;
+  background-color: $supporting-color;
+
+  ul {
+    display: flex;
+    list-style: none;
+    
+    li {
+      margin-left: 2rem;
+      cursor: pointer;
+    }
+  }
+}

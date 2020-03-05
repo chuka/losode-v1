@@ -1,0 +1,21 @@
+.search {
+  margin-right: 11.5rem;
+  position: relative;
+
+  &__icon {
+    display: inline;
+    position: absolute;
+    font-size: 1.5rem;
+    margin: .5rem 0 0 -2rem;
+    
+  }
+
+  &__input {
+    outline: none;
+    border: none;
+    font-size: 1em;
+    border-bottom: 1px solid #bbb;
+    font-family: inherit;
+    color: inherit;
+  }
+}
