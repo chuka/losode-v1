@@ -44,10 +44,16 @@ class App extends React.Component{
     const products = await results.json()
     this.setState({products})
   }
-  async getIpAddress(){
-    const result = await fetch('https://geoip-db.com/jsonp/')
-    this.setState({result:result.json()})
+ async getIpAddress(){
+  try{
+     const result = await fetch('https://geoip-db.com/jsonp/')
+     const resultJson = await result.json()
+     this.setState({result:resultJson})
+  }catch(err){
+    alert('Failed to fetch location')
   }
+  
+  }  
 
   componentDidMount(){
    this.getProducts()
