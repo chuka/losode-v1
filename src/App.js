@@ -15,6 +15,7 @@ import Admin from './components/Admin'
 import Seller from './components/Seller'
 import SignUp from './components/SignUp'
 import Sale from './components/Sale'
+import Inventory from './components/Inventory'
 import CurrencyConverter from './components/Converter'
 import Facebook from './components/Facebook'
 
@@ -44,16 +45,18 @@ class App extends React.Component{
     const products = await results.json()
     this.setState({products})
   }
- async getIpAddress(){
-  try{
-     const result = await fetch('https://geoip-db.com/jsonp/')
-     const resultJson = await result.json()
-     this.setState({result:resultJson})
-  }catch(err){
-    alert('Failed to fetch location')
+  async getIpAddress(){
+    try{
+         const results = await fetch('https://geoip-db.com/jsonp')
+        const jsonResult = await results.json()
+        this.setState({result:jsonResult})
+    }
+    catch(err){
+      alert('Unable to fetch Ip location')
+    }
+   
   }
-  
-  }  
+
 
   componentDidMount(){
    this.getProducts()
@@ -62,9 +65,10 @@ class App extends React.Component{
 
 
   render(){
-    console.log(this.state.result)
+    console.log('IP result ', this.state.result)
     return(
       <React.Fragment>
+       <AuthContext.Provider>
         <Router>
              <MainNavbar/>
              <SubMainNavbar/>
@@ -79,35 +83,14 @@ class App extends React.Component{
                <Route path ='/sale'  component ={Sale}/>
                <Route path ='/converter' component ={CurrencyConverter}/>
                <Route path ='/facebook' component ={Facebook}/>
+               <Route path ='/inventory' component ={Inventory}/>
 
              </Switch>
         </Router>
+        </AuthContext.Provider>
       </React.Fragment>
       )
   }
-}
+  }
 
-/*
-const App = () => {
-  return (
-    <div className="App">
-      <MainNavBar />
-      <SubMainNavbar />
-      <CategoryNavbar />
-      <CouponNavbar />
-     <div className="main">
-      <div className="main-content">
-      <TopBanner/>
-      <HeroCarousel/>
-      <Arrivals />
-      <PopularProducts />
-      <Verdict/>
-      <Testimonial/>
-      <Footer />
-      </div>
-     </div>
-    </div>
-  );
-};
-*/
 export default App;
