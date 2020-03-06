@@ -9,18 +9,21 @@ class InventoryList extends React.Component{
 		}
 		
 		this.deleteProduct = this.deleteProduct.bind(this)
-		this.updateProduct = this.updateProduct.bind(this)
+		
 		this.editProduct = this.editProduct.bind(this)
 	}
+
 
 	deleteProduct(id){
 		const filteredProduct = this.state.products.filter(product=> product.id !== id)
 		this.setState({products:filteredProduct})
 	}
     
-     updateProduct(){
+     editProduct(){
      	console.log('updating product')
      }
+
+
 
 	getProducts(){
 	  console.log('fetching products ........')
@@ -31,7 +34,7 @@ class InventoryList extends React.Component{
 	render(){
 		return(
 			<React.Fragment>
-			  Hello from the Inventory List
+			  <InventoryItem/>
 			</React.Fragment>
 		)
 	}

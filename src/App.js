@@ -16,6 +16,7 @@ import Seller from './components/Seller'
 import SignUp from './components/SignUp'
 import Sale from './components/Sale'
 import Inventory from './components/Inventory'
+import InventoryList from './components/InventoryList'
 import CurrencyConverter from './components/Converter'
 import Facebook from './components/Facebook'
 
@@ -26,19 +27,44 @@ class App extends React.Component{
     super(props)
     this.state = {
        products:[],
-       token:null,
-       result :{}
-
-
+       userToken:null,
+       userId:null,
+       IpResult :{},
+       sellerToken:null,
+       sellerId:null,
+       adminToken:null,
+       superAdminToken:null,
+       adminId:null,
+       superAdminId:null
     }
   }
 
-  login = (token,userId)=>{
-    this.setState({token:token,userId:userId})
+  userlogin = (token,userId)=>{
+    this.setState({userToken:token,userId:userId})
   }
-  logout = ()=>{
-    this.setState({token:null,userId:null})
+
+  userlogout = ()=> this.setState({userToken:null,userId:null})
+
+
+  sellerLogin = (sellerToken,sellerId) =>{
+   this.setState({sellerToken:sellerToken, sellerId:sellerId})
   }
+
+  sellerLogout =()=> this.setState({sellerToken:null,sellerId:null})
+
+  adminLogin = (adminToken,adminId)=>{
+    this.setState({adminToken:adminToken,adminId:adminId})
+  }
+
+  adminLogin = ()=> this.setState({adminToken:null,adminId:null})
+  
+
+  superAdminLogin = (superAdminId,superAdminToken)=>{
+   this.setState({superAdminToken:superAdminToken,superAdminId:superAdminId})
+  }
+
+  superAdminLogout = ()=> this.setState({superAdminToken:null,superAdminId:null})
+  
 
   async getProducts(){
     const results = await fetch('http://localhost:5000/products')
@@ -68,7 +94,23 @@ class App extends React.Component{
     console.log('IP result ', this.state.result)
     return(
       <React.Fragment>
-       <AuthContext.Provider>
+       <AuthContext.Provider  value ={{userToken:this.state.userToken, 
+          userId:this.state.userId,
+           sellerToken:this.state.sellerToken,
+            sellerId:this.state.sellerId,
+            adminId:this.state.adminId, 
+            adminToken:this.state.adminToken, 
+            superAdminId:this.state.superAdminId, 
+            superAdminToken:this.state.superAdminToken,
+             userLogin:this.userLogin,
+             sellerLogin:this.sellerLogin,
+             adminLogin:this.adminLogin,
+             superAdminLogin:this.superAdminLogin,
+             userLogout:this.userLogout,
+             sellerLogout:this.sellerLogout,
+             adminLogout:this.sellerLogout,
+             superAdminLogout:this.superAdminLogout
+           }} >
         <Router>
              <MainNavbar/>
              <SubMainNavbar/>
@@ -83,8 +125,8 @@ class App extends React.Component{
                <Route path ='/sale'  component ={Sale}/>
                <Route path ='/converter' component ={CurrencyConverter}/>
                <Route path ='/facebook' component ={Facebook}/>
-               <Route path ='/inventory' component ={Inventory}/>
-
+               <Route path ='/createproduct' component ={Inventory}/>
+               <Route path ='/customer/products' component ={InventoryList}/>
              </Switch>
         </Router>
         </AuthContext.Provider>
