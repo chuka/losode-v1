@@ -57,11 +57,6 @@ class SignUp extends React.Component{
 
            <h1>LOSODE</h1>
            <p>Africa's Premier Fashion Destination</p>
-
-           <div className='container'>
-             <p> <Link to ='/signup'>New to LOSODE</Link>&nbsp;&nbsp;&nbsp; <Link to ='/login'>Already Registerd </Link> </p>
-
-           </div>
            
          <form onSubmit ={this.handleSubmit}>
              <h4>Create your Account </h4>

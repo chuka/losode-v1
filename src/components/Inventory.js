@@ -8,16 +8,28 @@ class CreateProduct extends React.Component{
 			quantity:0,
 		    unitPrice:0,
 		    productImage:null,
-		    productName:''
+		    productName:'',
+		    sizes:['XL','XXL','S','XS','M','L'],
+		    size:'S',
+		    colors:['red','black','blue','white'],
+		    color:'red'
+
 		}
 		this.handleChange = this.handleChange.bind(this)
 		this.createProduct  = this.createProduct.bind(this)
 		this.handleFileChange = this.handleFileChange.bind(this)
+		this.selectHandler = this.selectHandler.bind(this)
 	}
 
 	handleChange(e){
      this.setState({[e.target.name]:e.target.value})
 	}
+
+	selectHandler(e){
+	 this.setState({[e.target.name]:e.target.value})
+      
+	}
+
 	createProduct(e){
 		e.preventDefault()
 
@@ -116,6 +128,26 @@ class CreateProduct extends React.Component{
                     />
                  </label>  
                   </div>
+
+                   <div className ='form-group'>
+         	           <select
+         	              name ='size'
+         	              onChange = {this.selectHandler}
+         	              value = {this.state.size}
+         	              className='form-control'>
+	         	        {this.state.sizes.map(size=>(<option key ={size} value ={size}>{size}</option>))}
+         	           </select>
+         	           </div>
+
+         	           <div className ='form-group'>
+         	           <select
+         	              name ='color'
+         	              onChange = {this.selectHandler}
+         	              value = {this.state.color}
+         	              className='form-control'>
+	         	        {this.state.colors.map(color=>(<option key ={color} value ={color}>{color}</option>))}
+         	           </select>
+         	           </div>
 
                   <div className ='form-group'>
                    <label>

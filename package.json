@@ -21,9 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "proxy":"https://geoip-db.com/jsonp"
+    "eject": "react-scripts eject"  
   },
+  "proxy":"https://geoip-db.com/jsonp",
  
   "eslintConfig": {
     "extends": "react-app"
