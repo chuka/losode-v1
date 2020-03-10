@@ -122,6 +122,7 @@ class App extends React.Component{
                <Route path ='/facebook' component ={Facebook}/>
                <Route path ='/createproduct' component ={CreateProduct}/>
                <Route path ='/seller/products' component ={InventoryList}/>
+               <Route path = '/customer' component ={Customer}/>
              </Switch>
         </Router>
         </AuthContext.Provider>
