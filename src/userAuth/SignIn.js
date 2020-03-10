@@ -63,10 +63,7 @@ render(){
          <h1>LOSODE</h1>
            <p>Africa's Premier Fashion Destination</p>
 
-           <div className='container'>
-             <p> <Link to ='/signup'>New to LOSODE</Link>&nbsp;&nbsp;&nbsp; <Link to ='/login'>Already Registerd </Link> </p>
-              
-           </div>
+          
          <form onSubmit ={this.handleSubmit}>
            <h4>Sign In </h4>
            <p>Sign in with Email</p>

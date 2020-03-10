@@ -8,15 +8,12 @@ import SubMainNavbar from './components/SubMainNavbar';
 import CategoryNavbar from './components/CategoryNavbar';
 import CouponNavbar from './components/CouponNavbar';
 import AuthContext from './Context/AuthContext'
-import SignIn from './components/SignIn'
-import Customer from './components/Customer'
 import Home from './components/Home'
 import Admin from './components/Admin'
-import Seller from './components/Seller'
-import SignUp from './components/SignUp'
+import UserAuth from './userAuth/UserAuth'
 import Sale from './components/Sale'
-import Inventory from './components/Inventory'
-import InventoryList from './components/InventoryList'
+import CreateProduct from './components/Inventory'
+import InventoryList from './components/Inventory'
 import CurrencyConverter from './components/Converter'
 import Facebook from './components/Facebook'
 
@@ -73,7 +70,7 @@ class App extends React.Component{
   }
   async getIpAddress(){
     try{
-         const results = await fetch('https://geoip-db.com/jsonp')
+         const results = await fetch('https://cors-anywhere.herokuapp.com/https://geoip-db.com/jsonp')
         const jsonResult = await results.json()
         this.setState({result:jsonResult})
     }
@@ -118,15 +115,12 @@ class App extends React.Component{
              <Switch>
                <Route exact path='/' component ={Home}/>
                <Route path ='/admin' component ={Admin}/>
-               <Route path ='/login' component ={SignIn}/>
-               <Route path ='/signup' component ={SignUp}/>
-               <Route path ='/seller' component ={Seller}/>
-               <Route path  ='/customer' component ={Customer}/>
+               <Route path ='/user-auth' component ={UserAuth}/>
                <Route path ='/sale'  component ={Sale}/>
                <Route path ='/converter' component ={CurrencyConverter}/>
                <Route path ='/facebook' component ={Facebook}/>
-               <Route path ='/createproduct' component ={Inventory}/>
-               <Route path ='/customer/products' component ={InventoryList}/>
+               <Route path ='/createproduct' component ={CreateProduct}/>
+               <Route path ='/seller/products' component ={InventoryList}/>
              </Switch>
         </Router>
         </AuthContext.Provider>

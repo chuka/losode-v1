@@ -19,8 +19,15 @@ class InventoryList extends React.Component{
 		this.setState({products:filteredProduct})
 	}
     
-     editProduct(){
-     	console.log('updating product')
+     editProduct(id,brandName,quantity,price,productName){
+     	const payload ={
+     		brandName:brandName,
+     		quantity:quantity,
+     		price:price,
+     		productName:productName
+     	}
+
+     	//Write Code to send the data to Losode's Api and update the product with the given Id
      }
 
 
