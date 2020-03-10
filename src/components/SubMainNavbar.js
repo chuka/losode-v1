@@ -26,7 +26,7 @@ class SubMainNavbar extends React.Component{
 
     <div className="co">
     {/* <a href=""><Logo className="logo" /></a> */}
-    <a href=""><img className="img-fluid logo" src={Logo} alt="losode logo"/></a>
+    <a href="/"><img className="img-fluid logo" src={Logo} alt="losode logo"/></a>
     </div>
 
     <div className="co pt-4">

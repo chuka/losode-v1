@@ -19,7 +19,7 @@ class MainNavbar extends React.Component{
     </div>
     <div className="col-4">
     <div className="flex-container">
-   <div> Hey <Link to ='/login'>Sign In</Link> OR <Link to ='/signup'>Join Us </Link></div>                            
+   <div> Hey <Link to ='/user-auth'>Sign In</Link> OR <Link to ='/signup'>Join Us </Link></div>                            
     <div>	&#x20A6;</div>
     <div>
     <ul className="flex-container">
