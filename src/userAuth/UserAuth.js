@@ -1,6 +1,9 @@
 import React from 'react'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
+import Footer from '../components/Footer'
+
+import '../userAuth/UserAuth.scss';
 class UserAuth extends React.Component{
 	constructor(props){
 		super(props)
@@ -25,16 +28,28 @@ class UserAuth extends React.Component{
 		return(
 			<React.Fragment>
 
-			  <div className ='container'>
-			      
-                     <p><button className='btn btn-primary' onClick ={this.handleSignInAuth}>New To Losode</button>
+			  <div className ="container-fluid auth">
+				<div className="row">
+					<div className="col-lg-6 red">
+
+					</div>
+
+					<div className="h-100 formCol d-flex  col-lg-6 justify-content-center">
+					<span>
+					<p><button className='btn btn-primary' onClick ={this.handleSignInAuth}>New To Losode</button>
                      <button className='btn btn-primary' onClick ={this.handleSignUpAuth}>Already Registered</button>
 			         </p>
+
+					 {result}</span>
+					</div>
+
+					</div>			  
+
 			  </div>
 
-			      {result}
+			      
 
-
+<Footer/>
 			</React.Fragment>
 		   )
 	}
