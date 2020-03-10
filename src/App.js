@@ -3,6 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SCSS/App.scss';
 import './SCSS/responsiveness.scss'
+import Customer from './Customers/Customer'
 import MainNavbar from './components/MainNavbar';
 import SubMainNavbar from './components/SubMainNavbar';
 import CategoryNavbar from './components/CategoryNavbar';
@@ -121,6 +122,7 @@ class App extends React.Component{
                <Route path ='/facebook' component ={Facebook}/>
                <Route path ='/createproduct' component ={CreateProduct}/>
                <Route path ='/seller/products' component ={InventoryList}/>
+               <Route path = '/customer' component ={Customer}/>
              </Switch>
         </Router>
         </AuthContext.Provider>
