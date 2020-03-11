@@ -11,7 +11,7 @@ const CustomerSideBar  = ()=>{
            <li><Link to ='/customer/orders'>Orders</Link></li>  
            <li><Link to ='/customer/return'>My Returns </Link></li> 
            <li><Link to ='/help'>Need Help?</Link></li>  
-           <li>Sign Out</li>  
+           <li>Sign Out</li> 
           </ul>
       </React.Fragment>
   )

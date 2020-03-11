@@ -4,7 +4,8 @@ import CustomerSideBar from './CustomerSideBar'
 import CustomerDetails from './CustomerDetails'
 import RecommendedProducts from  '../components/RecommendedProducts'
 
-class Customer extends React.Component{
+
+class CustomerDashBoard extends React.Component{
 	constructor(props){ 
 		super(props)
 		this.state = {
@@ -35,4 +36,4 @@ class Customer extends React.Component{
 			)
 	}
 }
-export default Customer
+export default CustomerDashBoard

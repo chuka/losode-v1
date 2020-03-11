@@ -3,7 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SCSS/App.scss';
 import './SCSS/responsiveness.scss'
-import Customer from './Customers/Customer'
+import CustomerDashboard from'./Customers/CustomerDashboard'
 import MainNavbar from './components/MainNavbar';
 import SubMainNavbar from './components/SubMainNavbar';
 import CategoryNavbar from './components/CategoryNavbar';
@@ -17,6 +17,8 @@ import CreateProduct from './components/Inventory'
 import InventoryList from './components/Inventory'
 import CurrencyConverter from './components/Converter'
 import Facebook from './components/Facebook'
+import Cart from './components/Cart'
+
 
 import {BrowserRouter as Router, Switch,Redirect,Route} from 'react-router-dom'
 
@@ -108,6 +110,7 @@ class App extends React.Component{
              sellerLogout:this.sellerLogout,
              adminLogout:this.sellerLogout,
              superAdminLogout:this.superAdminLogout
+            
            }} >
         <Router>
              <MainNavbar/>
@@ -122,7 +125,9 @@ class App extends React.Component{
                <Route path ='/facebook' component ={Facebook}/>
                <Route path ='/createproduct' component ={CreateProduct}/>
                <Route path ='/seller/products' component ={InventoryList}/>
-               <Route path = '/customer' component ={Customer}/>
+               <Route path = '/customer/dashboard' component ={CustomerDashboard}/>
+               <Route path ='/cart' component ={Cart}/>
+               
              </Switch>
         </Router>
         </AuthContext.Provider>
