@@ -29,13 +29,13 @@ class UserAuth extends React.Component{
 			<React.Fragment>
 
 			  <div className ="container-fluid auth">
-				<div className="row">
+				<div className="row tall-row">
 					<div className="col-lg-6 red">
 
 					</div>
 
-					<div className="h-100 formCol d-flex  col-lg-6 justify-content-center">
-					<span>
+					<div className="pt-4 d-flex  col-lg-6 justify-content-center">
+					<span className="formCol">
 					<p><button className='btn btn-primary' onClick ={this.handleSignInAuth}>New To Losode</button>
                      <button className='btn btn-primary' onClick ={this.handleSignUpAuth}>Already Registered</button>
 			         </p>
