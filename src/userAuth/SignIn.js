@@ -1,6 +1,7 @@
 import React from 'react'
 import AuthContext from '../Context/AuthContext'
 import {Link} from 'react-router-dom'
+import  Logo  from '../assets/images/losode_logo.svg';
 
 class SignIn extends React.Component{
 	static contextType = AuthContext
@@ -60,15 +61,12 @@ render(){
  <React.Fragment>
    <div className ='container'>
 
-         <h1>LOSODE</h1>
-           <p>Africa's Premier Fashion Destination</p>
-
-          
+           <a href="/"><img className="mx-auto d-block img-fluid logo" src={Logo} alt="losode logo"/></a>
          <form onSubmit ={this.handleSubmit}>
-           <h4>Sign In </h4>
-           <p>Sign in with Email</p>
+           <h4 className="text-center">Sign In </h4>
+           <p className="text-center">Sign in with Email</p>
              
-          <div className ='form-group'>
+          <div className='mx-auto d-block form-group'>
               <label>
               Email
                 <input type ='email'
