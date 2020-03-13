@@ -35,9 +35,9 @@ class UserAuth extends React.Component{
 
 					</div>
 
-					<div className="pt-4 d-flex  col-lg-6 justify-content-center">
+					<div className="pt-4 d-flex col-lg-6 justify-content-center">
 					<span className="formCol mb-4 mt-4">
-					<p><button className='btn btn-primary' onClick ={this.handleSignInAuth}>New To Losode</button>
+					<p className="text-center"><button className='btn btn-primary' onClick ={this.handleSignInAuth}>New To Losode</button>
                      <button className='btn btn-primary' onClick ={this.handleSignUpAuth}>Already Registered</button>
 			         </p>
 

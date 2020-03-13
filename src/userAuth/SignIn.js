@@ -3,6 +3,7 @@ import AuthContext from '../Context/AuthContext'
 import {Link} from 'react-router-dom'
 import  Logo  from '../assets/images/losode_logo.svg';
 
+import '../userAuth/UserAuth.scss';
 class SignIn extends React.Component{
 	static contextType = AuthContext
    constructor(props){
@@ -66,11 +67,11 @@ render(){
            <h4 className="text-center">Sign In </h4>
            <p className="text-center">Sign in with Email</p>
              
-          <div className='mx-auto d-block form-group'>
+          <div className='d-flex justify-content-center form-group'>
               <label>
-              Email
+              Email:
                 <input type ='email'
-                 className ='form-control'
+                 className ='input-form form-control'
                   placeholder ='Email'
                    name ='email'
 
@@ -81,11 +82,11 @@ render(){
               </label>  
           </div>
 
-          <div className ='form-group'>
+          <div className ='d-flex justify-content-center form-group'>
               <label>
-               Password
-                <input type ='password' 
-                className ='form-control'
+               Password:
+                <input type ='password'
+                className ='input-form form-control'
                  placeholder ='password'
                   name ='password'
                    onChange ={this.handleChange}
@@ -94,9 +95,11 @@ render(){
               </label>  
 
           </div>
+           <div className="d-flex  justify-content-center signButton">
            {this.state.email !=='' && this.state.password.length >= 6 &&<button className='btn btn-primary'>Login</button>}
-            <h5>OR</h5>
-           <p><Link to ='/facebook'>facebook login</Link> &nbsp;&nbsp;<Link to ='/google'>google login</Link></p>
+           </div>
+            {/* <h5>OR</h5>
+           <p><Link to ='/facebook'>facebook login</Link> &nbsp;&nbsp;<Link to ='/google'>google login</Link></p> */}
           </form>
         </div>
  </React.Fragment>
