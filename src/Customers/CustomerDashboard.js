@@ -1,4 +1,5 @@
 import React from 'react'
+import CustomerHelp from './CustomerHelp'
 import MyOrders from './Orders'
 import WelcomeHeader from './WelcomeHeader'
 import CustomerSideBar from './CustomerSideBar'
@@ -6,7 +7,7 @@ import CustomerDetails from './CustomerDetails'
 import RecommendedProducts from  '../components/RecommendedProducts'
 import {BrowserRouter as Router} from 'react-router-dom'
 import AuthContext from '../Context/AuthContext'
-import Returns from './Returns'
+import MyReturns from './Returns'
 
 
 class CustomerDashBoard extends React.Component{
@@ -67,32 +68,21 @@ class CustomerDashBoard extends React.Component{
         
 		return(
 			<React.Fragment>
+				<CustomerSideBar 
+				handleDashboard={this.handleDashboard}
+				 handleMyReturns ={this.handleMyReturns}
+				 handleNeedhelp = {this.handleNeedhelp}
+				 handleOrders ={this.handleOrders}
+				/>
+				<WelcomeHeader/>
+				Hello from the dashboard
 				<AuthContext.Consumer>
-				<Router>
-				   <CustomerSideBar/>
-				   <WelcomeHeader/>
-				</Router>	
-				   { (data) => {
-					     if(this.state.myreturnsClicked === true ){
-                           return <Returns userId ={data.userId}/>
-						 }
-
-						 if(this.state.ordersClicked ===true){
-							return <MyOrders userId ={data.userId}/>
-						 }
-						 if(this.state.dashboardClicked===true){
-							return <CustomerDetails userId={data.userId}/>
-						 }
-
-				   }
-				   
-				   }				     
-
-					{/* {this.state.myreturnsClicked && <Returns userId={data.userId}/>} */} 
+				 {(data)=>this.state.myreturnsClicked ?<MyReturns/>:this.state.ordersClicked ?<MyOrders/>:this.state.dashboardClicked?<CustomerDetails/>:this.state.needHelpClicked?<CustomerHelp/>:''}
+				 
 				</AuthContext.Consumer>
-				
+			
 			</React.Fragment>
-			)
+		)
 	}
 }
 export default CustomerDashBoard

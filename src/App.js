@@ -13,11 +13,14 @@ import Home from './components/Home'
 import Admin from './components/Admin'
 import UserAuth from './userAuth/UserAuth'
 import Sale from './components/Sale'
+import MyOrders from './Customers/Orders'
+import MyReturns from './Customers/Returns'
 import CreateProduct from './components/Inventory'
 import InventoryList from './components/Inventory'
 import CurrencyConverter from './components/Converter'
 import Facebook from './components/Facebook'
 import Cart from './components/Cart'
+import CustomerHelp from './Customers/CustomerHelp.js'
 
 
 import {BrowserRouter as Router, Switch,Redirect,Route} from 'react-router-dom'
@@ -127,7 +130,9 @@ class App extends React.Component{
                <Route path ='/seller/products' component ={InventoryList}/>
                <Route path = '/customer/dashboard' component ={CustomerDashboard}/>
                <Route path ='/cart' component ={Cart}/>
-               
+               <Route path ='/customer/orders' component ={MyOrders}/>
+               <Route path ='/customer/returns' component ={MyReturns}/>
+               <Route path ='/customer/help' component ={CustomerHelp}/>
              </Switch>
         </Router>
         </AuthContext.Provider>
