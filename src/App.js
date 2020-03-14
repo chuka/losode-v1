@@ -18,6 +18,7 @@ import InventoryList from './components/Inventory'
 import CurrencyConverter from './components/Converter'
 import Facebook from './components/Facebook'
 import Cart from './components/Cart'
+import SellerDashboard from './Seller/SellerDashboard'
 
 
 import {BrowserRouter as Router, Switch,Redirect,Route} from 'react-router-dom'
@@ -127,6 +128,7 @@ class App extends React.Component{
                <Route path ='/seller/products' component ={InventoryList}/>
                <Route path = '/customer/dashboard' component ={CustomerDashboard}/>
                <Route path ='/cart' component ={Cart}/>
+               <Route path='/seller' component={SellerDashboard}/>
                
              </Switch>
         </Router>

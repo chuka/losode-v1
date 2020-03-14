@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-
+import  Logo  from '../assets/images/losode_logo.svg';
 
 class SignUp extends React.Component{
    constructor(props){
@@ -55,13 +55,12 @@ class SignUp extends React.Component{
 		return(
            <div className ='container'>
 
-           <h1>LOSODE</h1>
-           <p>Africa's Premier Fashion Destination</p>
+<a href="/"><img className="mx-auto d-block img-fluid logo" src={Logo} alt="losode logo"/></a>
            
          <form onSubmit ={this.handleSubmit}>
-             <h4>Create your Account </h4>
-              <p>Registration is easy</p>
-             <div className ='form-group inline'>
+             <h2 className="text-center bold">Create your Account </h2>
+              <p className="text-center">Registration is easy</p>
+             <div className ='d-flex justify-content-center form-group inline'>
               <label>
                 First Name
                 <input type ='text' 
@@ -84,7 +83,7 @@ class SignUp extends React.Component{
               </label>
 
          	</div>
-         	<div className ='form-group'>
+         	<div className ='d-flex justify-content-center form-group'>
               <label>
               Email
                 <input type ='email'
@@ -100,7 +99,7 @@ class SignUp extends React.Component{
          	</div>
 
 
-         	<div className ='form-group'>
+         	<div className ='d-flex justify-content-center form-group'>
               <label>
                Password
                 <input type ='password'
@@ -112,11 +111,11 @@ class SignUp extends React.Component{
                    />
               </label>  
          	</div>
-         	<div className ='form-group'>
+         	<div className ='d-flex justify-content-center form-group'>
               <label>
                Confirm Password
                 <input type ='password'
-                 className ='form-control'
+                 className ='input-form form-control'
                   placeholder =' confirm Password'
                    name ='confirm_password'
                     onChange ={this.handleChange}

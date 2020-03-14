@@ -25,12 +25,18 @@
   height: 30px;
 }
 
+.input-form{
+  font-size: 16px;
+}
+
 label{
   font-size: 16px !important;
 }
 
 .signButton > button{
   width: 300px;
+  padding: 4px;
   background-color: #800000;
   border-color: #800000;
+  font-size: 16px;
 }
