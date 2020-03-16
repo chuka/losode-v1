@@ -132,7 +132,7 @@ class App extends React.Component{
         this.setState({result:jsonResult})
     }
     catch(err){
-      alert('Unable to fetch Ip location')
+      console.log('Unable to fetch Ip location')
     }
    
   }

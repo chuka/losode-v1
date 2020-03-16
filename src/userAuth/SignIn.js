@@ -1,7 +1,9 @@
 import React from 'react'
 import AuthContext from '../Context/AuthContext'
 import {Link} from 'react-router-dom'
+import  Logo  from '../assets/images/losode_logo.svg';
 
+import '../userAuth/UserAuth.scss';
 class SignIn extends React.Component{
 	static contextType = AuthContext
    constructor(props){
@@ -60,19 +62,16 @@ render(){
  <React.Fragment>
    <div className ='container'>
 
-         <h1>LOSODE</h1>
-           <p>Africa's Premier Fashion Destination</p>
-
-          
+           <a href="/"><img className="mx-auto d-block img-fluid logo" src={Logo} alt="losode logo"/></a>
          <form onSubmit ={this.handleSubmit}>
-           <h4>Sign In </h4>
-           <p>Sign in with Email</p>
+           <h4 className="text-center">Sign In </h4>
+           <p className="text-center">Sign in with Email</p>
              
-          <div className ='form-group'>
+          <div className='d-flex justify-content-center form-group'>
               <label>
-              Email
+              Email:
                 <input type ='email'
-                 className ='form-control'
+                 className ='input-form form-control'
                   placeholder ='Email'
                    name ='email'
 
@@ -83,11 +82,11 @@ render(){
               </label>  
           </div>
 
-          <div className ='form-group'>
+          <div className ='d-flex justify-content-center form-group'>
               <label>
-               Password
-                <input type ='password' 
-                className ='form-control'
+               Password:
+                <input type ='password'
+                className ='input-form form-control'
                  placeholder ='password'
                   name ='password'
                    onChange ={this.handleChange}
@@ -96,9 +95,11 @@ render(){
               </label>  
 
           </div>
+           <div className="d-flex  justify-content-center signButton">
            {this.state.email !=='' && this.state.password.length >= 6 &&<button className='btn btn-primary'>Login</button>}
-            <h5>OR</h5>
-           <p><Link to ='/facebook'>facebook login</Link> &nbsp;&nbsp;<Link to ='/google'>google login</Link></p>
+           </div>
+            {/* <h5>OR</h5>
+           <p><Link to ='/facebook'>facebook login</Link> &nbsp;&nbsp;<Link to ='/google'>google login</Link></p> */}
           </form>
         </div>
  </React.Fragment>
