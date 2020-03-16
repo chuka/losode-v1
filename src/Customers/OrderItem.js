@@ -1,12 +1,13 @@
 import React from 'react'
 
-const OrderItem = (props)=> {
-        return (
-            <div className ='container'>
-                    Order Item component
-             </div>    
-        )
-    
+class OrderItem extends React.Component{
+        render(){
+         return (
+                <div className ='container'>
+                 Order Item component
+                 </div>    
+          )
+        }
 }
 
 
