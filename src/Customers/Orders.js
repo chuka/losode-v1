@@ -1,4 +1,5 @@
 import React from 'react'
+import OrderItem from './OrderItem'
 
 class MyOrders extends React.Component{
     constructor(props){
@@ -10,7 +11,7 @@ class MyOrders extends React.Component{
     render(){
         return(
             <React.Fragment>
-                My Order Component
+              <OrderItem/>
             </React.Fragment>
         )
     }
