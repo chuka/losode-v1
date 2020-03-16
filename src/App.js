@@ -38,9 +38,60 @@ class App extends React.Component{
        adminToken:null,
        superAdminToken:null,
        adminId:null,
-       superAdminId:null
+       superAdminId:null,
+       cart:[]
+       
     }
   }
+
+  
+    addToCart(product){
+      this.setState(prevState=>{
+      const newCart = prevState.cart
+      let productAlreadyInCart = false;
+      newCart.forEach(item =>{
+        if(item.id ===product.id){
+          item.quantity++
+          localStorage.setItem('cart', JSON.stringify(newCart))
+          productAlreadyInCart = true
+        }
+      })
+  
+      if(!productAlreadyInCart){
+        newCart = [...newCart,{...product,quantity:1}]
+        localStorage.setItem('cart',JSON.stringify(newCart))
+      }
+      return{cart:JSON.parse(localStorage.getItem('cart'))}
+     })
+      
+    }
+  
+
+  increaseQuantity =(product) =>{
+    const cartItems = this.state.cart
+    const index = cartItems.indexOf(product)
+    cartItems[index].quantity++
+    localStorage.setItem('cart',JSON.parse(cartItems))
+    this.setState({cart:JSON.parse(localStorage.getItem('cart')||[])})
+  }
+
+  decreaseQuantity =(product) =>{
+    const cartItems = this.state.cart
+    const index = cartItems.indexOf(product)
+    if(cartItems[index].quantity > 1){
+        cartItems[index].quantity--
+        localStorage.setItem('cart', JSON.parse(cartItems))
+        this.setState({cart:JSON.parse(localStorage.getItem('cart')||[])})
+    }
+  }
+
+  removeFromCart = (product) =>{
+    const cartItems = this.state.cart
+    const filteredCart = cartItems.filter(item =>item.id !==product.id)
+    localStorage.setItem('cart',JSON.parse(filteredCart))
+    this.setState({cart:JSON.parse(localStorage.getItem('cart')||[])})
+  }
+
 
   userlogin = (token,userId)=>{
     this.setState({userToken:token,userId:userId})
@@ -85,6 +136,7 @@ class App extends React.Component{
     }
    
   }
+  
 
 
   componentDidMount(){
@@ -112,7 +164,8 @@ class App extends React.Component{
              userLogout:this.userLogout,
              sellerLogout:this.sellerLogout,
              adminLogout:this.sellerLogout,
-             superAdminLogout:this.superAdminLogout
+             superAdminLogout:this.superAdminLogout,
+             cart:[]
             
            }} >
         <Router>
@@ -130,9 +183,9 @@ class App extends React.Component{
                <Route path ='/seller/products' component ={InventoryList}/>
                <Route path = '/customer/dashboard' component ={CustomerDashboard}/>
                <Route path ='/cart' component ={Cart}/>
-               <Route path ='/customer/orders' component ={MyOrders}/>
-               <Route path ='/customer/returns' component ={MyReturns}/>
-               <Route path ='/customer/help' component ={CustomerHelp}/>
+               <Route path ='/customer/dashboard/orders' component ={MyOrders}/>
+               <Route path ='/customer/dashboard/returns' component ={MyReturns}/>
+               <Route path ='/customer/dashboard/help' component ={CustomerHelp}/>
              </Switch>
         </Router>
         </AuthContext.Provider>

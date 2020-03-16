@@ -11,10 +11,7 @@ class MyOrders extends React.Component{
     render(){
         return(
             <React.Fragment>
-               <OrderItem/>
-               <OrderItem/>
-               <OrderItem/>
-                <OrderItem/>
+              <OrderItem/>
             </React.Fragment>
         )
     }
