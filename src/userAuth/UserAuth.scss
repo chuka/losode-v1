@@ -21,10 +21,19 @@
 }
 
 .input-form{
-  width: 300px;
+  width: 330px;
   height: 30px;
 }
 
+.fName{
+  height: 27px;
+  font-size: 16px;
+}
+
+.lName{
+  height: 27px;
+  font-size: 16px;
+}
 .input-form{
   font-size: 16px;
 }
@@ -34,7 +43,7 @@ label{
 }
 
 .signButton > button{
-  width: 300px;
+  width: 330px;
   padding: 4px;
   background-color: #800000;
   border-color: #800000;

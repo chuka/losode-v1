@@ -1,0 +1,28 @@
+.sidebar-menu > li a {
+    color: #000
+}
+
+li a:hover{
+    color: #800000;
+    font-weight: 700;
+}
+
+.dashboard{
+    
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .sidebar-menu > li {
+        background-color: #000;
+        color: #fff;
+        width: 100px !important;
+        padding: 5px 15px 5px 15px;
+    }
+
+    .sidebar-menu > li a{
+        color: #fff;
+        text-align: center;
+    }
+  }

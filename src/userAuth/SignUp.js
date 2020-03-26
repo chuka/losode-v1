@@ -60,59 +60,65 @@ class SignUp extends React.Component{
          <form onSubmit ={this.handleSubmit}>
              <h2 className="text-center bold">Create your Account </h2>
               <p className="text-center">Registration is easy</p>
-             <div className ='d-flex justify-content-center form-group inline'>
+
+          <div className ='d-flex justify-content-center form-group' id="signup">
+            <div className="row">
+              <div className="col">
               <label>
-                First Name
+                First Name:
                 <input type ='text' 
-                className ='form-control'
+                className ='fName form-control'
                  placeholder ='First name'
                   name ='firstname'
                    onChange ={this.handleChange}
                    value ={this.state.firstname}
                    />
-              </label>  
+              </label>
+              </div>
+              <div className="col">
               <label>
-                Last Name
+                Last Name:
                 <input type ='text' 
-                className ='form-control'
+                className ='lName form-control'
                  placeholder ='Last Name'
                   name ='lastname'
                    onChange ={this.handleChange}
                    value ={this.state.lastname}
                    />
               </label>
+              </div>
+            </div>
+          </div>
 
-         	</div>
-         	<div className ='d-flex justify-content-center form-group'>
-              <label>
+          <div className ='d-flex justify-content-center form-group'>
+          <label>
               Email
                 <input type ='email'
-                 className ='form-control'
+                 className ='input-form form-control'
                   placeholder ='Email'
                    name ='email'
                     onChange ={this.handleChange}
                     value ={this.state.email}
                     required
                     />
-              </label>  
+              </label>
+          </div>
 
-         	</div>
-
-
-         	<div className ='d-flex justify-content-center form-group'>
-              <label>
+          <div className ='d-flex justify-content-center form-group'>
+          <label>
                Password
                 <input type ='password'
-                 className ='form-control' 
+                 className ='input-form form-control' 
                  placeholder ='Password'
                   name ='password'
                    onChange ={this.handleChange}
                    value ={this.state.password}
                    />
               </label>  
-         	</div>
-         	<div className ='d-flex justify-content-center form-group'>
-              <label>
+          </div>
+
+          <div className ='d-flex justify-content-center form-group'>
+          <label>
                Confirm Password
                 <input type ='password'
                  className ='input-form form-control'
@@ -122,9 +128,12 @@ class SignUp extends React.Component{
                     value ={this.state.confirm_password}
                     />
               </label>  
-         	</div>
+          </div>
 
-         	 {this.state.firstname !== '' && this.state.lastname !=='' && this.state.email !== ''  &&  this.state.password !== '' && this.state.password === this.state.confirm_password && <button className ='btn btn-primary'>submit</button>}
+          <div className="d-flex  justify-content-center signButton">
+          {this.state.firstname !== '' && this.state.lastname !=='' && this.state.email !== ''  &&  this.state.password !== '' && this.state.password === this.state.confirm_password && <button className ='btn btn-primary'>submit</button>}
+            </div>
+         	 
            <h5>OR</h5>
             
              <p><Link to ='/facebook'>facebook login</Link> &nbsp;&nbsp;<Link to ='/google'>google login</Link></p>

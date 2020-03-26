@@ -11,7 +11,7 @@ class Footer extends React.Component{
                         <div className="col footer-content">
                             <h4>About Losode</h4>
                             <ul>
-                                <li>About Losode</li> 
+                                <li><a href="/aboutlosode">About Losode</a></li> 
                                 <li>About Losode</li> 
                                 <li>About Losode</li> 
                                 <li>About Losode</li> 

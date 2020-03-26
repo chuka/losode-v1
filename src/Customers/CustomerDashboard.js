@@ -8,6 +8,7 @@ import AuthContext from '../Context/AuthContext'
 import MyReturns from './Returns'
 import {Link} from 'react-router-dom'
 import CustomerSideBar from './CustomerSideBar'
+import Footer from '../components/Footer'
 
 
 class CustomerDashBoard extends React.Component{
@@ -65,35 +66,55 @@ class CustomerDashBoard extends React.Component{
         
 		return(
 			<React.Fragment>
-				<CustomerSideBar handleDashboard={this.handleDashboard} handleMyReturns={this.handleMyReturns} handleNeedhelp={this.handleNeedhelp} handleOrders= {this.handleOrders}/>
-				<p>Welcome User</p>
 				
-			 <AuthContext.Consumer>
-				 {(data)=>{
-					 if(this.state.myreturnsClicked){
+				
+
+				<div class="container-fluid">
+
+					<div class="row dashboard">
+					<div class="col-md-2">
+					<CustomerSideBar handleDashboard={this.handleDashboard}
+				 handleMyReturns={this.handleMyReturns}
+				 handleNeedhelp ={this.handleNeedhelp}
+				 handleOrders ={this.handleOrders}/>
+					</div>
+					<div class="col-md-9">
+
+					<AuthContext.Consumer>
+                  
+				  {(data)=>{
+						 if(this.state.myreturnsClicked){
+							 return(
+								 <MyReturns/>
+							  )	
+						 }
+						  
+					 
+					  if(this.state.ordersClicked){
 						 return(
-							<MyReturns/>
+							 <MyOrders/>
 						 )
-					 }
-					 if(this.state.ordersClicked){
-						return(
-							<MyOrders/>
-						)
-					 }
-					 if(this.state.dashboardClicked){
-						return(
-						<CustomerDetails/>
-						)
-					 }
-					 if( this.state.needHelpClicked){
+					  }
+					  if(this.state.dashboardClicked){
 						 return(
-							<CustomerHelp/>
+						 <CustomerDetails/>
 						 )
-					 }
-					}	 
-	         }
-				 
-				</AuthContext.Consumer>
+					  }
+					  if( this.state.needHelpClicked){
+						  return(
+							 <CustomerHelp/>
+						  )
+					  }
+					 }	 
+			  }
+				  
+				 </AuthContext.Consumer>
+					</div>
+					</div>
+
+				</div>
+				
+			 	<Footer/>
 			
 			</React.Fragment>
 		)

@@ -3,6 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SCSS/App.scss';
 import './SCSS/responsiveness.scss'
+import SellerDashboard from './Seller/SellerDashboard'
 import CustomerDashboard from'./Customers/CustomerDashboard'
 import MainNavbar from './components/MainNavbar';
 import SubMainNavbar from './components/SubMainNavbar';
@@ -21,8 +22,7 @@ import CurrencyConverter from './components/Converter'
 import Facebook from './components/Facebook'
 import Cart from './components/Cart'
 import CustomerHelp from './Customers/CustomerHelp.js'
-
-
+import AboutLosode from './components/AboutLosode'
 import {BrowserRouter as Router, Switch,Redirect,Route} from 'react-router-dom'
 
 class App extends React.Component{
@@ -39,57 +39,61 @@ class App extends React.Component{
        superAdminToken:null,
        adminId:null,
        superAdminId:null,
-       cart:[]
+       cartItems:[]
        
     }
   }
+   setCart =(value)=>{
+     if(localStorage){
+       localStorage.setItem('items',JSON.stringify(value))
+     }
+   }
 
+   getCart(){
+     if(localStorage && localStorage.getItem('items')){
+      return JSON.parse(localStorage.getItem('items'))
+     }
+     return []
+   }
   
-    addToCart(product){
-      this.setState(prevState=>{
-      const newCart = prevState.cart
-      let productAlreadyInCart = false;
-      newCart.forEach(item =>{
-        if(item.id ===product.id){
-          item.quantity++
-          localStorage.setItem('cart', JSON.stringify(newCart))
-          productAlreadyInCart = true
-        }
-      })
-  
-      if(!productAlreadyInCart){
-        newCart = [...newCart,{...product,quantity:1}]
-        localStorage.setItem('cart',JSON.stringify(newCart))
-      }
-      return{cart:JSON.parse(localStorage.getItem('cart'))}
-     })
-      
-    }
+
+
+  addToCart =(product)=>{
+     const alreadyInCart = this.state.cartItems.findIndex(item=>item.id===product.id)
+     if(alreadyInCart ===-1){
+       const updatedItems = this.state.cartItems.concat({...product,quantity:1})
+     }
+     else{
+       const updatedItems = [...this.state.cartItems]
+       updatedItems[alreadyInCart].quantity += 1
+       this.setState({cartItems:updatedItems},()=>this.setCart(updatedItems))
+     }
+  }
+
   
 
   increaseQuantity =(product) =>{
-    const cartItems = this.state.cart
-    const index = cartItems.indexOf(product)
-    cartItems[index].quantity++
-    localStorage.setItem('cart',JSON.parse(cartItems))
-    this.setState({cart:JSON.parse(localStorage.getItem('cart')||[])})
+    const updatedItems = this.state.cartItems
+    const index = updatedItems.indexOf(product)
+    updatedItems[index].quantity++
+    this.setState({cartItems:updatedItems},()=>this.setCart(updatedItems))
+    
   }
 
   decreaseQuantity =(product) =>{
-    const cartItems = this.state.cart
-    const index = cartItems.indexOf(product)
-    if(cartItems[index].quantity > 1){
-        cartItems[index].quantity--
-        localStorage.setItem('cart', JSON.parse(cartItems))
-        this.setState({cart:JSON.parse(localStorage.getItem('cart')||[])})
+    const updatedItems = this.state.cartItems
+    const index = updatedItems.indexOf(product)
+    if(updatedItems[index].quantity > 1){
+        updatedItems[index].quantity--
+        this.setState({cartItems:updatedItems}, ()=>this.setCart(updatedItems))
     }
   }
 
   removeFromCart = (product) =>{
-    const cartItems = this.state.cart
+    const cartItems = this.state.cartItems
     const filteredCart = cartItems.filter(item =>item.id !==product.id)
-    localStorage.setItem('cart',JSON.parse(filteredCart))
-    this.setState({cart:JSON.parse(localStorage.getItem('cart')||[])})
+    this.setState({cartItems:filteredCart},()=>this.setCart(filteredCart))
+   
   }
 
 
@@ -142,6 +146,7 @@ class App extends React.Component{
   componentDidMount(){
    this.getProducts()
    this.getIpAddress()
+   this.setState({cartItems:this.getCart()})
   }
 
 
@@ -186,6 +191,7 @@ class App extends React.Component{
                <Route path ='/customer/dashboard/orders' component ={MyOrders}/>
                <Route path ='/customer/dashboard/returns' component ={MyReturns}/>
                <Route path ='/customer/dashboard/help' component ={CustomerHelp}/>
+               <Route path='/aboutlosode' component={AboutLosode}/>
              </Switch>
         </Router>
         </AuthContext.Provider>

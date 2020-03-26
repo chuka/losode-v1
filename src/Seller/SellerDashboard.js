@@ -1,11 +1,11 @@
 import React from "react"
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
+  // DesktopOutlined,
+  // PieChartOutlined,
+  // FileOutlined,
+  // TeamOutlined,
+  // UserOutlined,
 } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -28,7 +28,7 @@ class SellerDashboard extends React.Component {
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
-              <PieChartOutlined />
+              {/* <PieChartOutlined /> */}
               <span>Option 1</span>
             </Menu.Item>
             <Menu.Item key="2">

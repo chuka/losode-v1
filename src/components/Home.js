@@ -19,6 +19,7 @@ const Home =()=>{
      				 <PopularProducts />
      				 <Verdict/>
      				 <Testimonial/>
+					  <Footer/>
 				</div>
 			</div> 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import  Logo  from '../assets/images/losode_logo.svg';
-import { Icon } from 'antd';
+
 
 import '../SCSS/SubMainNavbar.scss';
 import SearchInput from './SearchInput';
@@ -18,7 +18,7 @@ class SubMainNavbar extends React.Component{
         <li>mens</li>
         <li>health & beauty</li>
       </ul>
-      <span onClick={displaySideMenu} className="pl-3 hamburger hide-big pb-4"><Icon type="menu" /></span>
+     { /*<span onClick={displaySideMenu} className="pl-3 hamburger hide-big pb-4"><Icon type="menu" /></span>*/}
       <div className="mobile-menu-display">
         <span className="float-right font-weight-bold">X</span>
       </div>

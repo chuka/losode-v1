@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-
+import './Customers.scss'
 class CustomerSideBar extends React.Component{
       constructor(props){
         super(props)
@@ -27,11 +27,11 @@ class CustomerSideBar extends React.Component{
      
       render(){
         return(
-          <div>
-          <h4>Image goes here</h4>
-          <p>Isaac Orija</p>
-          <ul>
-           <li onClick ={this.handleDashboard}><Link to ='/customer/dashboard'>dashboard</Link></li>  
+          <div class="d-flex justify-content-center">
+          
+          <ul class="sidebar-menu">
+          <p class="">Welcome Isaac Orija</p>
+           <li onClick ={this.handleDashboard}><Link to ='/customer/dashboard'>Dashboard</Link></li>  
            <li onClick ={this.handleOrders}><Link to ='/customer/dashboard/orders'>Orders</Link></li>  
            <li onClick ={this.handleMyReturns}><Link to ='/customer/dashboard/returns'>My Returns </Link></li> 
            <li onClick ={this.handleNeedhelp}><Link to ='/customer/dashboard/help'>Need Help?</Link></li>  
